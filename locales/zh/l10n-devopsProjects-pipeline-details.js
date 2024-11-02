@@ -150,4 +150,10 @@ module.exports = {
   // Pull Requests
   PULL_REQUEST_PL: '拉取请求',
   FAILED_CHECK_SCRIPT_COMPILE: '检查脚本编译失败，如果你想跳过这一步骤，请点击继续按钮',
+  WEBSITE: 'Website',
+  GITBOOK: 'Gitbook',
+  GITHUB: 'Github',
+  TWITTER: 'Twitter',
+  TELEGRAM: 'Telegram',
+  DISCORD: 'Discord',
 };

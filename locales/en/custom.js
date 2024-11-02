@@ -235,7 +235,7 @@ module.exports = {
   PROJECT_CPU_USAGE: 'Project CPU usage',
   NS_STORAGE_QUOTA_DESC: 'You can limit the total amount of storage resources under the project.',
   KS_DESCRIPTION:
-    'KubeSphere is an open-source platform built on top of the mainstream container orchestration platform Kubernetes, providing an easy-to-use operating interface and wizard-style operations. It greatly lowers the learning curve of the container orchestration platform for users and reduces the complexity of daily work for developers, testing personnel, and operation and maintenance personnel.',
+    "Titan Container is a next-generation container computing platform built upon KubeSphere, comprising two core components: Edge Container and Data Center (DC) Container. Building on KubeSphere's robust container management capabilities, we implement blockchain technology to facilitate decentralized container orchestration and computational resource scheduling. Through innovative deployment of smart contracts, we achieve automated cross-node resource allocation and transparent settlement. The decentralized architecture ensures data privacy and system security, with all operations being traceable and immutable, thereby providing a secure and efficient one-stop solution for enterprise computing, AI training, and big data analytics.",
   REPS_ADDRESS: 'Project address',
   WORKSPACE_DESC:
     'A workspace is a logical unit that organizes your projects and DevOps projects, manages resource access permissions, and shares resources within teams. It can serve as an independent workspace for team work.',

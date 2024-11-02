@@ -34,7 +34,7 @@ module.exports = {
   PLATFORM_CLUSTER_DESC: '从基础设施视角进行资源管理。',
   USER_AND_ROLE_MANAGEMENT: '用户和角色管理',
   USER_AND_ROLE_MANAGEMENT_DESC: '对平台中的用户、以及角色进行统一管理。',
-  EXTENSION_DESC: 'KubeSphere 扩展组件快捷访问入口',
+  EXTENSION_DESC: 'Titan Container 扩展组件快捷访问入口',
   ALL_WORKSPACE: '全部企业空间',
   ALL_WORKSPACE_PL: '全部企业空间',
   WORKBENCH_ALL_CLUSTER: '全部集群',

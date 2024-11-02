@@ -5,7 +5,7 @@
 
 module.exports = {
   KS_DESCRIPTION:
-    'KubeSphere is an open-source project aiming to provide enterprise-grade multi-tenant container platform on top of Kubernetes, the current mainstream container orchestration platform. It provides easy-to-use interface and wizard-style operations, reducing the learning curve and operating cost of Kubernetes in terms of the daily work of development, test and maintenance.',
+    "Titan Container is a next-generation container computing platform built upon KubeSphere, comprising two core components: Edge Container and Data Center (DC) Container. Building on KubeSphere's robust container management capabilities, we implement blockchain technology to facilitate decentralized container orchestration and computational resource scheduling. Through innovative deployment of smart contracts, we achieve automated cross-node resource allocation and transparent settlement. The decentralized architecture ensures data privacy and system security, with all operations being traceable and immutable, thereby providing a secure and efficient one-stop solution for enterprise computing, AI training, and big data analytics.",
   REPS_ADDRESS: 'GitHub',
   ISSUE_FEEDBACK: 'Feedback',
   PART_IN_DISCUSSION: 'Discussion',

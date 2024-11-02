@@ -4,7 +4,16 @@
  */
 
 import React from 'react';
-import { Documentation, TopicCircle, Github, Slack, Git, Star } from '@kubed/icons';
+import {
+  Earth,
+  GitbookDuotone,
+  Github,
+  TwitterDuotone,
+  TelegramDuotone,
+  DiscordDuotone,
+  Git,
+  Star,
+} from '@kubed/icons';
 
 import { useUrl } from '@ks-console/shared';
 import {
@@ -21,24 +30,34 @@ import {
 
 const BUTTONS = [
   {
-    key: 'doc',
-    icon: Documentation,
-    localeKey: 'DOCUMENTATION',
+    key: 'website',
+    icon: Earth,
+    localeKey: 'WEBSITE',
   },
   {
-    key: 'forum',
-    icon: TopicCircle,
-    localeKey: 'FORUM',
+    key: 'gitbook',
+    icon: GitbookDuotone,
+    localeKey: 'GITBOOK',
   },
   {
-    key: 'issues',
+    key: 'github',
     icon: Github,
-    localeKey: 'ISSUE_PL',
+    localeKey: 'GITHUB',
   },
   {
-    key: 'slack',
-    icon: Slack,
-    localeKey: 'SLACK',
+    key: 'twitter',
+    icon: TwitterDuotone,
+    localeKey: 'TWITTER',
+  },
+  {
+    key: 'telegram',
+    icon: TelegramDuotone,
+    localeKey: 'TELEGRAM',
+  },
+  {
+    key: 'discord',
+    icon: DiscordDuotone,
+    localeKey: 'DISCORD',
   },
 ];
 
