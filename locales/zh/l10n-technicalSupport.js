@@ -18,7 +18,7 @@ module.exports = {
   // KubeSphere Enterprise
   KUBESPHERE_ENTERPRISE_CAPTION: 'KubeSphere Enterprise',
   KUBE_SPHERE_ENTERPRISE_DESC:
-    'KubeSphere Enterprise 是由 QingCloud 开发的企业级容器平台，基于 KubeSphere 开源平台。与开源版本相比，KubeSphere Enterprise 增强了企业量化运营、大规模集群运维和安全加固等方面的的能力，并扩展了微型服务治理和应用管理等多个关键功能。KubeSphere Enterprise 扩展组件市场提供企业级扩展组件，以满足各种业务场景的需求，并由 QingCloud 提供专家解决方案和技术支持。',
+    'Titan Container 是基于 KubeSphere 打造的新一代容器计算平台，包含边缘计算(Edge Container)和数据中心(DC Container)两大核心组件。我们在 KubeSphere 强大的容器管理能力基础上，通过区块链技术提供去中心化的容器编排和算力调度，创新性地利用智能合约实现跨节点的资源自动分配和透明结算。去中心化架构确保数据隐私和系统安全，所有操作均可追溯且不可篡改，为企业级计算、AI训练和大数据分析提供安全、高效的一站式解决方案。 ',
   KSE_FEATURE_1: '赋能企业数字化转型量化运营',
   KSE_FEATURE_2: '增强大规模联邦集群运维能力',
   KSE_FEATURE_3: '提供全生命周期安全保护',

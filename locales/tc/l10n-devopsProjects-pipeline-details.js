@@ -152,4 +152,10 @@ module.exports = {
   PULL_REQUEST_PL: '拉取請求',
   FAILED_CHECK_SCRIPT_COMPILE:
     'The check of script compile failed, if you want to bypass the step, please click the continue button',
+  WEBSITE: 'Website',
+  GITBOOK: 'Gitbook',
+  GITHUB: 'Github',
+  TWITTER: 'Twitter',
+  TELEGRAM: 'Telegram',
+  DISCORD: 'Discord',
 };

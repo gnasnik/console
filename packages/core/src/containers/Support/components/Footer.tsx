@@ -13,6 +13,7 @@ export function Footer() {
   const contactUsLink = getConfigSupportLink('contactUs');
 
   return (
-    <Root dangerouslySetInnerHTML={{ __html: t('LEARN_MORE_CONTACT_US', { contactUsLink }) }} />
+    // <Root dangerouslySetInnerHTML={{ __html: t('LEARN_MORE_CONTACT_US', { contactUsLink }) }} />
+    <Root></Root>
   );
 }

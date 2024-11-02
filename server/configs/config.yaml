@@ -39,7 +39,7 @@ server:
 
   # default theme
   theme:
-    tabTitle: 'KubeSphere'
+    tabTitle: 'TitanContainer'
     title: 'ENT_TITLE'
     logo: /assets/logo.svg
     favicon: /assets/favicon.ico
@@ -57,16 +57,16 @@ client:
   homePage: /dashboard
 
   # kubesphere urls
-  issueUrl: https://github.com/kubesphere/kubesphere/issues/new/choose
-  reposUrl: https://github.com/kubesphere/kubesphere
-  slackUrl: https://kubesphere.slack.com
+  issueUrl: https://github.com/Titannet-dao/Community/issues/new/choose
+  reposUrl: https://github.com/Titannet-dao
+  slackUrl: https://titannetwork.slack.com
   documents:
     en:
-      url: https://docs.kubesphere.com.cn/v4.0
-      api: https://kubesphere.io/docs/reference/api-docs/
+      url: https://titannet.gitbook.io/titan-network-en
+      api: https://titannet.gitbook.io/titan-network-en
     zh:
-      url: https://docs.kubesphere.com.cn/v4.0
-      api: https://kubesphere.com.cn/docs/reference/api-docs/
+      url: https://titannet.gitbook.io/titan-network-cn
+      api: https://titannet.gitbook.io/titan-network-cn
 
   # current support lanaguages
   supportLangs:
@@ -825,23 +825,30 @@ client:
     - 'nvidia.com/gpu'
   supportLinks:
     kse:
-      en: https://kubesphere.co/kse
-      zh: https://kubesphere.com.cn/kse
+      en: https://titannet.gitbook.io/titan-network-en
+      zh: https://titannet.gitbook.io/titan-network-cn
     ksc:
-      en: https://kubesphere.cloud/en/
-      zh: https://kubesphere.cloud/
-    github: 'https://github.com/kubesphere/kubesphere'
-    githubPr: 'https://github.com/kubesphere/kubesphere'
-    star: 'https://github.com/kubesphere/kubesphere'
-    githubFork: 'https://github.com/kubesphere/kubesphere'
+      en: https://titannet.gitbook.io/titan-network-en
+      zh: https://titannet.gitbook.io/titan-network-cn
+    github: 'https://github.com/Titannet-dao'
+    githubPr: 'https://github.com/Titannet-dao'
+    star: 'https://github.com/Titannet-dao'
+    githubFork: 'https://github.com/Titannet-dao'
     slack: 'https://kubesphere.slack.com/'
-    doc: 'https://kubesphere.io/zh/docs/v4.1/'
-    forum: 'https://kubesphere.com.cn/forum/'
-    issues: 'https://github.com/kubesphere/kubesphere/issues'
-    contactUs: 'https://m.qingcloud.com/page/23555798970015596/4c97b2026cb84249be20d94e71b647cf'
+    doc: 'https://titannet.gitbook.io/titan-network-en'
+    forum: 'https://github.com/Titannet-dao/Community/discussions'
+    issues: 'https://github.com/Titannet-dao/issues'
+    contactUs: 'https://github.com/Titannet-dao/Community/discussions'
     backup: 'https://kubesphere.cloud/self-service/disaster-recovery/'
     inspection: 'https://kubesphere.cloud/inspection/'
     light: 'https://kubesphere.cloud/lite-cluster/'
+    website: https://titannet.io/
+    gitbook:
+      en: https://titannet.gitbook.io/titan-network-en
+      zh: https://titannet.gitbook.io/titan-network-cn
+    twitter: https://x.com/Titannet_dao
+    telegram: https://t.me/titannet_dao
+    discord: https://discord.com/invite/titannet
 
   # license page is hide unauthorized components
   # isHideUnauthorizedComponents: false
