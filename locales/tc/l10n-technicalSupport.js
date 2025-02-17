@@ -16,7 +16,7 @@ module.exports = {
     'Professional cloud-native development team and container service delivery team with more than 10 years of public and private cloud support experience and in-depth understanding of industries, providing comprehensive technical support including installation, troubleshooting, recovery, and other professional services.',
   CONTACT_US: 'Contact Us',
   // KubeSphere Enterprise
-  KUBESPHERE_ENTERPRISE_CAPTION: 'KubeSphere Enterprise',
+  KUBESPHERE_ENTERPRISE_CAPTION: 'Titan Container',
   KUBE_SPHERE_ENTERPRISE_DESC:
     'KubeSphere Enterprise is an enterprise-grade container platform developed by QingCloud based on the open-source KubeSphere platform. Compared with the open-source edition, KubeSphere Enterprise enhances capabilities for enterprise quantitative operations, large-scale cluster O&M, and security hardening, and extends multiple key features such as microservice governance and app management. The KubeSphere Enterprise Extension Marketplace provides enterprise-grade extensions to meet requirements of various business scenarios, with expert solutions and technical support from QingCloud.',
   KSE_FEATURE_1: 'Empowers enterprise digital transformation towards quantitative operations',

@@ -129,7 +129,7 @@ module.exports = {
     'You can upload the Helm chart as an app template for the workspace, and once approved, the app will be published in the app store.',
   HOW_TO_APPLY_MORE_CLUSTER_Q: 'How to apply for more clusters for the workspace?',
   WORKSPACE_OVERVIEW_DESC:
-    'The workspace provides a secure, access-controlled, and isolated platform on KubeSphere. Here you can see an overview of the resources running in the current workspace.',
+    'The workspace provides a secure, access-controlled, and isolated platform on TitanContainer. Here you can see an overview of the resources running in the current workspace.',
   WORKSPACE_SETTINGS: 'Workspace Settings',
   WORKSPACE_BASIC_INFO_DESC:
     'Basic information provides an overview of the workspace, where you can view basic information about the workspace.',

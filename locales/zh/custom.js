@@ -109,7 +109,7 @@ module.exports = {
     '您可以将 Helm chart 上传为工作区的应用模板，审核通过后，应用将会发布在应用商店中。',
   HOW_TO_APPLY_MORE_CLUSTER_Q: '如何为工作区申请更多的集群？',
   WORKSPACE_OVERVIEW_DESC:
-    '工作区为 KubeSphere 提供了安全隔离的、具有访问权限控制的工作平台。这里您可以看到当前工作区内资源运行的概况。',
+    '工作区为 TitanContainer 提供了安全隔离的、具有访问权限控制的工作平台。这里您可以看到当前工作区内资源运行的概况。',
   WORKSPACE_SETTINGS: '工作区设置',
   WORKSPACE_BASIC_INFO_DESC: '基本信息提供工作区的信息概览，您可以查看工作区的基本信息。',
   WORKSPACE_BASE_INFO_Q1: '如何为工作区申请更多的集群？',

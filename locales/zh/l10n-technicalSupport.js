@@ -16,7 +16,7 @@ module.exports = {
     '专业云原生开发团队和容器服务交付团队，具有超过 10 年的公有云和私有云支持经验和对行业的深入了解，可提供全面的技术支持，包括安装、故障排除、恢复和其他专业服务。',
   CONTACT_US: '联系我们',
   // KubeSphere Enterprise
-  KUBESPHERE_ENTERPRISE_CAPTION: 'KubeSphere Enterprise',
+  KUBESPHERE_ENTERPRISE_CAPTION: 'Titan Container',
   KUBE_SPHERE_ENTERPRISE_DESC:
     'Titan Container 是基于 KubeSphere 打造的新一代容器计算平台，包含边缘计算(Edge Container)和数据中心(DC Container)两大核心组件。我们在 KubeSphere 强大的容器管理能力基础上，通过区块链技术提供去中心化的容器编排和算力调度，创新性地利用智能合约实现跨节点的资源自动分配和透明结算。去中心化架构确保数据隐私和系统安全，所有操作均可追溯且不可篡改，为企业级计算、AI训练和大数据分析提供安全、高效的一站式解决方案。 ',
   KSE_FEATURE_1: '赋能企业数字化转型量化运营',

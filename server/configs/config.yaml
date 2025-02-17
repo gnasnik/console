@@ -31,8 +31,8 @@ server:
   apiServer:
     clientID: kubesphere
     clientSecret: kubesphere
-    url: http://ks-apiserver
-    wsUrl: ws://ks-apiserver
+    url: https://kube.titannet.io
+    wsUrl: wss://kube.titannet.io
 
   # docker image search default url
   dockerHubUrl: https://hub.docker.com
