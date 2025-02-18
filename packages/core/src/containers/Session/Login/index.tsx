@@ -57,7 +57,7 @@ function encrypt(salt: string, str: string) {
 }
 
 const Login = () => {
-  console.log('Login');
+  console.log('Login-123');
   const [show, setShow] = useState(false);
   const [form] = useForm();
 
@@ -138,7 +138,8 @@ const Login = () => {
       if (data.success) {
         setWaitRedirect(true);
         // history.push(data.redirect);
-        window.location.href = data.redirect;
+        // window.location.href = data.redirect;
+        window.location.href = location.origin + '/dashboard';
       } else {
         setShow(true);
       }

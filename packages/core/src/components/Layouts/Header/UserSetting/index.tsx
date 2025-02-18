@@ -82,11 +82,11 @@ const UserSetting = () => {
       icon: getIcon('basicInfo'),
       key: 'basicInfo',
     },
-    {
-      label: t('PASSWORD_SETTINGS'),
-      icon: getIcon('password'),
-      key: 'password',
-    },
+    // {
+    //   label: t('PASSWORD_SETTINGS'),
+    //   icon: getIcon('password'),
+    //   key: 'password',
+    // },
   ];
 
   const handleCancel = () => {
