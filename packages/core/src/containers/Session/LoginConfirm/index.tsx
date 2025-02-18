@@ -3,11 +3,11 @@
  * https://github.com/kubesphere/console/blob/master/LICENSE
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { get } from 'lodash';
-import { Button, Card, Form, FormItem, Input } from '@kubed/components';
+import { Button, Card, Form, FormItem, Input, useForm } from '@kubed/components';
 import { request, Pattern, validator } from '@ks-console/shared';
 
 import {
@@ -28,6 +28,23 @@ const nameValidator = async (rule: any, value: string) => {
 };
 
 const LoginConfirm = () => {
+  const [show, setShow] = useState(false);
+  const [form] = useForm();
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const email = decodeURIComponent(searchParams.get('email') as string);
+    const pwd = decodeURIComponent(searchParams.get('pwd') as string);
+
+    if (email && pwd) {
+      form.setFieldsValue({
+        email: email,
+        username: pwd,
+      });
+      form.submit();
+    } else {
+      setShow(true);
+    }
+  }, []);
   const navigate = useNavigate();
   const loginMutation = useMutation(
     data => {
@@ -37,7 +54,12 @@ const LoginConfirm = () => {
       onSuccess: (data: any) => {
         if (data.success) {
           navigate(data.redirect);
+        } else {
+          setShow(true);
         }
+      },
+      onError: () => {
+        setShow(true);
       },
     },
   );
@@ -46,52 +68,54 @@ const LoginConfirm = () => {
   const logo = globals.useDefaultTheme ? kseLogo : globals.theme.logo;
 
   return (
-    <LoginWrapper>
-      <LoginHeader href="/">
-        <img src={logo} alt="logo" />
-      </LoginHeader>
-      <Card className="login-box" contentClassName="login-card">
-        <WelcomeTitle>{t('Please confirm your account info')}</WelcomeTitle>
-        <LoginDivider />
-        <Form className="login-form" size="md" onFinish={loginMutation.mutate}>
-          <FormItem
-            label={t('EMAIL')}
-            name="email"
-            className="username"
-            help={t('USER_SETTING_EMAIL_DESC')}
-            initialValue={get(globals, 'user.email')}
-            rules={[
-              {
-                required: true,
-                message: t('INPUT_USERNAME_OR_EMAIL_TIP'),
-              },
-              { type: 'email', message: t('INVALID_EMAIL') },
-              { validator: validator.emailValidator },
-            ]}
-          >
-            <Input name="email" placeholder="user@example.com" />
-          </FormItem>
-          <FormItem
-            label={t('Username')}
-            name="username"
-            help={t('USERNAME_DESC')}
-            defaultValue={get(globals, 'user.username')}
-            rules={[
-              { required: true, message: t('Please input username') },
-              { pattern: Pattern.PATTERN_USER_NAME, message: t('USERNAME_INVALID') },
-              { validator: nameValidator, message: t('USERNAME_EXISTS') },
-            ]}
-          >
-            <Input name="username" placeholder="user@example.com" maxLength={32} />
-          </FormItem>
-          <LoginButton>
-            <Button color="secondary" block shadow radius="xl" loading={loginMutation.isLoading}>
-              {t('Log In')}
-            </Button>
-          </LoginButton>
-        </Form>
-      </Card>
-    </LoginWrapper>
+    <div style={{ display: show ? 'block' : 'none' }}>
+      <LoginWrapper>
+        <LoginHeader href="/">
+          <img src={logo} alt="logo" />
+        </LoginHeader>
+        <Card className="login-box" contentClassName="login-card">
+          <WelcomeTitle>{t('Please confirm your account info')}</WelcomeTitle>
+          <LoginDivider />
+          <Form className="login-form" size="md" onFinish={loginMutation.mutate}>
+            <FormItem
+              label={t('EMAIL')}
+              name="email"
+              className="username"
+              help={t('USER_SETTING_EMAIL_DESC')}
+              initialValue={get(globals, 'user.email')}
+              rules={[
+                {
+                  required: true,
+                  message: t('INPUT_USERNAME_OR_EMAIL_TIP'),
+                },
+                { type: 'email', message: t('INVALID_EMAIL') },
+                { validator: validator.emailValidator },
+              ]}
+            >
+              <Input name="email" placeholder="user@example.com" />
+            </FormItem>
+            <FormItem
+              label={t('Username')}
+              name="username"
+              help={t('USERNAME_DESC')}
+              defaultValue={get(globals, 'user.username')}
+              rules={[
+                { required: true, message: t('Please input username') },
+                { pattern: Pattern.PATTERN_USER_NAME, message: t('USERNAME_INVALID') },
+                { validator: nameValidator, message: t('USERNAME_EXISTS') },
+              ]}
+            >
+              <Input name="username" placeholder="user@example.com" maxLength={32} />
+            </FormItem>
+            <LoginButton>
+              <Button color="secondary" block shadow radius="xl" loading={loginMutation.isLoading}>
+                {t('Log In')}
+              </Button>
+            </LoginButton>
+          </Form>
+        </Card>
+      </LoginWrapper>
+    </div>
   );
 };
 
