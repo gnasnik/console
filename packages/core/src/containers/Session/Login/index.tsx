@@ -57,6 +57,7 @@ function encrypt(salt: string, str: string) {
 }
 
 const Login = () => {
+  console.log('Login');
   const [show, setShow] = useState(false);
   const [form] = useForm();
 
@@ -90,6 +91,7 @@ const Login = () => {
     const searchParams = new URLSearchParams(window.location.search);
     const email = decodeURIComponent(searchParams.get('email') as string);
     const pwd = decodeURIComponent(searchParams.get('pwd') as string);
+    console.log('email', email, pwd);
 
     if (email && pwd) {
       form.setFieldsValue({
