@@ -76,7 +76,7 @@ const LoginConfirm = () => {
         <Card className="login-box" contentClassName="login-card">
           <WelcomeTitle>{t('Please confirm your account info')}</WelcomeTitle>
           <LoginDivider />
-          <Form className="login-form" size="md" onFinish={loginMutation.mutate}>
+          <Form className="login-form" form={form} size="md" onFinish={loginMutation.mutate}>
             <FormItem
               label={t('EMAIL')}
               name="email"
