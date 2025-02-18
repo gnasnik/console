@@ -7,7 +7,16 @@ import React, { useState, useEffect } from 'react';
 import { get } from 'lodash';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useMutation } from 'react-query';
-import { Button, Card, Alert, Form, FormItem, Input, InputPassword } from '@kubed/components';
+import {
+  Button,
+  Card,
+  Alert,
+  Form,
+  FormItem,
+  Input,
+  InputPassword,
+  useForm,
+} from '@kubed/components';
 import { cookie, request } from '@ks-console/shared';
 import {
   LoginHeader,
@@ -48,6 +57,9 @@ function encrypt(salt: string, str: string) {
 }
 
 const Login = () => {
+  const [show, setShow] = useState(false);
+  const [form] = useForm();
+
   const oauthServers = get(globals, 'oauthServers', []);
 
   const [errorMessage, setErrorMessage] = useState('');
@@ -74,7 +86,21 @@ const Login = () => {
       setSelectedServer(null);
     }
   }, [lowerCaseType, title]);
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const email = decodeURIComponent(searchParams.get('email') as string);
+    const pwd = decodeURIComponent(searchParams.get('pwd') as string);
 
+    if (email && pwd) {
+      form.setFieldsValue({
+        username: email,
+        password: pwd,
+      });
+      form.submit();
+    } else {
+      setShow(true);
+    }
+  }, []);
   const handleOAuthLogin = (server: Server) => {
     const info = {
       name: server.title,
@@ -111,7 +137,12 @@ const Login = () => {
         setWaitRedirect(true);
         // history.push(data.redirect);
         window.location.href = data.redirect;
+      } else {
+        setShow(true);
       }
+    },
+    onError: () => {
+      setShow(true);
     },
   });
 
@@ -121,83 +152,84 @@ const Login = () => {
     setSelectedServer(null);
     navigate('/login');
   };
-
   const kseLogo = globals.config.logo || globals.defaultTheme.logo;
   const logo = globals.useDefaultTheme ? kseLogo : globals.theme.logo;
 
   return (
-    <LoginWrapper>
-      <LoginHeader href="/">
-        <img src={logo} />
-      </LoginHeader>
-      <Card className="login-box" contentClassName="login-card">
-        <WelcomeTitle>
-          {isRegularLogin
-            ? t('WELCOME')
-            : t('USERNAME_WITH_TITLE', { title: selectedServer?.title })}
-        </WelcomeTitle>
-        <LoginDivider />
-        {isRegularLogin &&
-          oauthServers.map((server: Server) => (
-            <OauthButton
-              key={server.url}
-              data-url={server.url}
-              onClick={() => {
-                handleOAuthLogin(server);
-              }}
+    <div style={{ display: show ? 'block' : 'none' }}>
+      <LoginWrapper>
+        <LoginHeader href="/">
+          <img src={logo} />
+        </LoginHeader>
+        <Card className="login-box" contentClassName="login-card">
+          <WelcomeTitle>
+            {isRegularLogin
+              ? t('WELCOME')
+              : t('USERNAME_WITH_TITLE', { title: selectedServer?.title })}
+          </WelcomeTitle>
+          <LoginDivider />
+          {isRegularLogin &&
+            oauthServers.map((server: Server) => (
+              <OauthButton
+                key={server.url}
+                data-url={server.url}
+                onClick={() => {
+                  handleOAuthLogin(server);
+                }}
+              >
+                <span>{t('LOG_IN_WITH_TITLE', { title: server?.title })}</span>
+              </OauthButton>
+            ))}
+          {errorMessage && (
+            <Alert className="login-alert" type="error" showIcon={false}>
+              {t(errorMessage)}
+            </Alert>
+          )}
+          <Form className="login-form" form={form} size="md" onFinish={loginMutation.mutate}>
+            <FormItem
+              label={
+                isRegularLogin
+                  ? t('USERNAME_OR_EMAIL')
+                  : t('USERNAME_WITH_TITLE', { title: selectedServer?.title })
+              }
+              name="username"
+              className="username"
+              rules={[
+                {
+                  required: true,
+                  message: t('INPUT_USERNAME_OR_EMAIL_TIP'),
+                },
+              ]}
             >
-              <span>{t('LOG_IN_WITH_TITLE', { title: server?.title })}</span>
-            </OauthButton>
-          ))}
-        {errorMessage && (
-          <Alert className="login-alert" type="error" showIcon={false}>
-            {t(errorMessage)}
-          </Alert>
-        )}
-        <Form className="login-form" size="md" onFinish={loginMutation.mutate}>
-          <FormItem
-            label={
-              isRegularLogin
-                ? t('USERNAME_OR_EMAIL')
-                : t('USERNAME_WITH_TITLE', { title: selectedServer?.title })
-            }
-            name="username"
-            className="username"
-            rules={[
-              {
-                required: true,
-                message: t('INPUT_USERNAME_OR_EMAIL_TIP'),
-              },
-            ]}
-          >
-            <Input placeholder="user@example.com" />
-          </FormItem>
-          <FormItem
-            label={t('PASSWORD')}
-            name="password"
-            rules={[{ required: true, message: t('PASSWORD_EMPTY_DESC') }]}
-          >
-            <InputPassword placeholder="Password" />
-          </FormItem>
-          <LoginButton>
-            <Button
-              color="secondary"
-              block
-              shadow
-              radius="xl"
-              loading={loginMutation.isLoading || waitRedirect}
+              <Input placeholder="user@example.com" />
+            </FormItem>
+            <FormItem
+              label={t('PASSWORD')}
+              name="password"
+              rules={[{ required: true, message: t('PASSWORD_EMPTY_DESC') }]}
             >
-              {t('LOG_IN')}
-            </Button>
-            {!isRegularLogin && (
-              <BackButton variant="text" block onClick={handleBack}>
-                {t('BACK')}
-              </BackButton>
-            )}
-          </LoginButton>
-        </Form>
-      </Card>
-    </LoginWrapper>
+              <InputPassword placeholder="Password" />
+            </FormItem>
+            <LoginButton>
+              <Button
+                color="secondary"
+                block
+                shadow
+                radius="xl"
+                loading={loginMutation.isLoading || waitRedirect}
+              >
+                {t('LOG_IN')}
+              </Button>
+              {!isRegularLogin && (
+                <BackButton variant="text" block onClick={handleBack}>
+                  {t('BACK')}
+                </BackButton>
+              )}
+            </LoginButton>
+          </Form>
+        </Card>
+      </LoginWrapper>
+    </div>
   );
 };
 
